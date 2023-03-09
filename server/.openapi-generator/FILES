@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+Dockerfile
+api/openapi.yaml
+go/README.md
+go/api_coding.go
+go/api_dev.go
+go/model__api_coding_complete__lang__post_request.go
+go/model__api_coding_convert__lang__post_request.go
+go/model__api_coding_explain__lang__post_request.go
+go/model__api_coding_fix_error__lang__post_request.go
+go/model__api_dev_gen_token_cap_get_200_response.go
+go/model_api_dev_gen_token_post_200_response.go
+go/model_api_dev_gen_token_post_request.go
+go/model_err_info.go
+go/model_lang.go
+go/routers.go
+main.go

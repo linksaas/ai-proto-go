@@ -12,8 +12,8 @@ To see how to make this your own, look here:
 
 [README](https://openapi-generator.tech)
 
-- API version: 0.0.1
-- Build date: 2023-03-09T16:51:31.332178700+08:00[Asia/Shanghai]
+- API version: 0.0.2
+- Build date: 2023-03-10T14:33:06.125414+08:00[Asia/Shanghai]
 For more information, please visit [https://github.com/linksaas/ai-proto](https://github.com/linksaas/ai-proto)
 
 ### Running the server

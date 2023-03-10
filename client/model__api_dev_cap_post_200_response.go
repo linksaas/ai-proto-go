@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.1
+API version: 0.0.2
 Contact: panleiming@linksaas.pro
 */
 
@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the ApiDevGenTokenCapGet200Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ApiDevGenTokenCapGet200Response{}
+// checks if the ApiDevCapPost200Response type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApiDevCapPost200Response{}
 
-// ApiDevGenTokenCapGet200Response struct for ApiDevGenTokenCapGet200Response
-type ApiDevGenTokenCapGet200Response struct {
+// ApiDevCapPost200Response struct for ApiDevCapPost200Response
+type ApiDevCapPost200Response struct {
 	// 代码补全支持的编程语言列表
 	CompleteLangList []Lang `json:"completeLangList"`
 	// 生成测试代码支持的编程语言列表
@@ -32,12 +32,12 @@ type ApiDevGenTokenCapGet200Response struct {
 	FixErrorLangList []Lang `json:"fixErrorLangList"`
 }
 
-// NewApiDevGenTokenCapGet200Response instantiates a new ApiDevGenTokenCapGet200Response object
+// NewApiDevCapPost200Response instantiates a new ApiDevCapPost200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiDevGenTokenCapGet200Response(completeLangList []Lang, genTestLangList []Lang, convertLangList []Lang, explainLangList []Lang, fixErrorLangList []Lang) *ApiDevGenTokenCapGet200Response {
-	this := ApiDevGenTokenCapGet200Response{}
+func NewApiDevCapPost200Response(completeLangList []Lang, genTestLangList []Lang, convertLangList []Lang, explainLangList []Lang, fixErrorLangList []Lang) *ApiDevCapPost200Response {
+	this := ApiDevCapPost200Response{}
 	this.CompleteLangList = completeLangList
 	this.GenTestLangList = genTestLangList
 	this.ConvertLangList = convertLangList
@@ -46,16 +46,16 @@ func NewApiDevGenTokenCapGet200Response(completeLangList []Lang, genTestLangList
 	return &this
 }
 
-// NewApiDevGenTokenCapGet200ResponseWithDefaults instantiates a new ApiDevGenTokenCapGet200Response object
+// NewApiDevCapPost200ResponseWithDefaults instantiates a new ApiDevCapPost200Response object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewApiDevGenTokenCapGet200ResponseWithDefaults() *ApiDevGenTokenCapGet200Response {
-	this := ApiDevGenTokenCapGet200Response{}
+func NewApiDevCapPost200ResponseWithDefaults() *ApiDevCapPost200Response {
+	this := ApiDevCapPost200Response{}
 	return &this
 }
 
 // GetCompleteLangList returns the CompleteLangList field value
-func (o *ApiDevGenTokenCapGet200Response) GetCompleteLangList() []Lang {
+func (o *ApiDevCapPost200Response) GetCompleteLangList() []Lang {
 	if o == nil {
 		var ret []Lang
 		return ret
@@ -66,7 +66,7 @@ func (o *ApiDevGenTokenCapGet200Response) GetCompleteLangList() []Lang {
 
 // GetCompleteLangListOk returns a tuple with the CompleteLangList field value
 // and a boolean to check if the value has been set.
-func (o *ApiDevGenTokenCapGet200Response) GetCompleteLangListOk() ([]Lang, bool) {
+func (o *ApiDevCapPost200Response) GetCompleteLangListOk() ([]Lang, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -74,12 +74,12 @@ func (o *ApiDevGenTokenCapGet200Response) GetCompleteLangListOk() ([]Lang, bool)
 }
 
 // SetCompleteLangList sets field value
-func (o *ApiDevGenTokenCapGet200Response) SetCompleteLangList(v []Lang) {
+func (o *ApiDevCapPost200Response) SetCompleteLangList(v []Lang) {
 	o.CompleteLangList = v
 }
 
 // GetGenTestLangList returns the GenTestLangList field value
-func (o *ApiDevGenTokenCapGet200Response) GetGenTestLangList() []Lang {
+func (o *ApiDevCapPost200Response) GetGenTestLangList() []Lang {
 	if o == nil {
 		var ret []Lang
 		return ret
@@ -90,7 +90,7 @@ func (o *ApiDevGenTokenCapGet200Response) GetGenTestLangList() []Lang {
 
 // GetGenTestLangListOk returns a tuple with the GenTestLangList field value
 // and a boolean to check if the value has been set.
-func (o *ApiDevGenTokenCapGet200Response) GetGenTestLangListOk() ([]Lang, bool) {
+func (o *ApiDevCapPost200Response) GetGenTestLangListOk() ([]Lang, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,12 +98,12 @@ func (o *ApiDevGenTokenCapGet200Response) GetGenTestLangListOk() ([]Lang, bool) 
 }
 
 // SetGenTestLangList sets field value
-func (o *ApiDevGenTokenCapGet200Response) SetGenTestLangList(v []Lang) {
+func (o *ApiDevCapPost200Response) SetGenTestLangList(v []Lang) {
 	o.GenTestLangList = v
 }
 
 // GetConvertLangList returns the ConvertLangList field value
-func (o *ApiDevGenTokenCapGet200Response) GetConvertLangList() []Lang {
+func (o *ApiDevCapPost200Response) GetConvertLangList() []Lang {
 	if o == nil {
 		var ret []Lang
 		return ret
@@ -114,7 +114,7 @@ func (o *ApiDevGenTokenCapGet200Response) GetConvertLangList() []Lang {
 
 // GetConvertLangListOk returns a tuple with the ConvertLangList field value
 // and a boolean to check if the value has been set.
-func (o *ApiDevGenTokenCapGet200Response) GetConvertLangListOk() ([]Lang, bool) {
+func (o *ApiDevCapPost200Response) GetConvertLangListOk() ([]Lang, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -122,12 +122,12 @@ func (o *ApiDevGenTokenCapGet200Response) GetConvertLangListOk() ([]Lang, bool) 
 }
 
 // SetConvertLangList sets field value
-func (o *ApiDevGenTokenCapGet200Response) SetConvertLangList(v []Lang) {
+func (o *ApiDevCapPost200Response) SetConvertLangList(v []Lang) {
 	o.ConvertLangList = v
 }
 
 // GetExplainLangList returns the ExplainLangList field value
-func (o *ApiDevGenTokenCapGet200Response) GetExplainLangList() []Lang {
+func (o *ApiDevCapPost200Response) GetExplainLangList() []Lang {
 	if o == nil {
 		var ret []Lang
 		return ret
@@ -138,7 +138,7 @@ func (o *ApiDevGenTokenCapGet200Response) GetExplainLangList() []Lang {
 
 // GetExplainLangListOk returns a tuple with the ExplainLangList field value
 // and a boolean to check if the value has been set.
-func (o *ApiDevGenTokenCapGet200Response) GetExplainLangListOk() ([]Lang, bool) {
+func (o *ApiDevCapPost200Response) GetExplainLangListOk() ([]Lang, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,12 +146,12 @@ func (o *ApiDevGenTokenCapGet200Response) GetExplainLangListOk() ([]Lang, bool) 
 }
 
 // SetExplainLangList sets field value
-func (o *ApiDevGenTokenCapGet200Response) SetExplainLangList(v []Lang) {
+func (o *ApiDevCapPost200Response) SetExplainLangList(v []Lang) {
 	o.ExplainLangList = v
 }
 
 // GetFixErrorLangList returns the FixErrorLangList field value
-func (o *ApiDevGenTokenCapGet200Response) GetFixErrorLangList() []Lang {
+func (o *ApiDevCapPost200Response) GetFixErrorLangList() []Lang {
 	if o == nil {
 		var ret []Lang
 		return ret
@@ -162,7 +162,7 @@ func (o *ApiDevGenTokenCapGet200Response) GetFixErrorLangList() []Lang {
 
 // GetFixErrorLangListOk returns a tuple with the FixErrorLangList field value
 // and a boolean to check if the value has been set.
-func (o *ApiDevGenTokenCapGet200Response) GetFixErrorLangListOk() ([]Lang, bool) {
+func (o *ApiDevCapPost200Response) GetFixErrorLangListOk() ([]Lang, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,11 +170,11 @@ func (o *ApiDevGenTokenCapGet200Response) GetFixErrorLangListOk() ([]Lang, bool)
 }
 
 // SetFixErrorLangList sets field value
-func (o *ApiDevGenTokenCapGet200Response) SetFixErrorLangList(v []Lang) {
+func (o *ApiDevCapPost200Response) SetFixErrorLangList(v []Lang) {
 	o.FixErrorLangList = v
 }
 
-func (o ApiDevGenTokenCapGet200Response) MarshalJSON() ([]byte, error) {
+func (o ApiDevCapPost200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -182,7 +182,7 @@ func (o ApiDevGenTokenCapGet200Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ApiDevGenTokenCapGet200Response) ToMap() (map[string]interface{}, error) {
+func (o ApiDevCapPost200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["completeLangList"] = o.CompleteLangList
 	toSerialize["genTestLangList"] = o.GenTestLangList
@@ -192,38 +192,38 @@ func (o ApiDevGenTokenCapGet200Response) ToMap() (map[string]interface{}, error)
 	return toSerialize, nil
 }
 
-type NullableApiDevGenTokenCapGet200Response struct {
-	value *ApiDevGenTokenCapGet200Response
+type NullableApiDevCapPost200Response struct {
+	value *ApiDevCapPost200Response
 	isSet bool
 }
 
-func (v NullableApiDevGenTokenCapGet200Response) Get() *ApiDevGenTokenCapGet200Response {
+func (v NullableApiDevCapPost200Response) Get() *ApiDevCapPost200Response {
 	return v.value
 }
 
-func (v *NullableApiDevGenTokenCapGet200Response) Set(val *ApiDevGenTokenCapGet200Response) {
+func (v *NullableApiDevCapPost200Response) Set(val *ApiDevCapPost200Response) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableApiDevGenTokenCapGet200Response) IsSet() bool {
+func (v NullableApiDevCapPost200Response) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableApiDevGenTokenCapGet200Response) Unset() {
+func (v *NullableApiDevCapPost200Response) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableApiDevGenTokenCapGet200Response(val *ApiDevGenTokenCapGet200Response) *NullableApiDevGenTokenCapGet200Response {
-	return &NullableApiDevGenTokenCapGet200Response{value: val, isSet: true}
+func NewNullableApiDevCapPost200Response(val *ApiDevCapPost200Response) *NullableApiDevCapPost200Response {
+	return &NullableApiDevCapPost200Response{value: val, isSet: true}
 }
 
-func (v NullableApiDevGenTokenCapGet200Response) MarshalJSON() ([]byte, error) {
+func (v NullableApiDevCapPost200Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableApiDevGenTokenCapGet200Response) UnmarshalJSON(src []byte) error {
+func (v *NullableApiDevCapPost200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

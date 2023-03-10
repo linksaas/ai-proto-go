@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.1
+API version: 0.0.2
 Contact: panleiming@linksaas.pro
 */
 
@@ -23,52 +23,58 @@ import (
 // DevApiService DevApi service
 type DevApiService service
 
-type ApiApiDevGenTokenCapGetRequest struct {
+type ApiApiDevCapPostRequest struct {
 	ctx context.Context
 	ApiService *DevApiService
 	xAuthToken *string
+	body *map[string]interface{}
 }
 
-func (r ApiApiDevGenTokenCapGetRequest) XAuthToken(xAuthToken string) ApiApiDevGenTokenCapGetRequest {
+func (r ApiApiDevCapPostRequest) XAuthToken(xAuthToken string) ApiApiDevCapPostRequest {
 	r.xAuthToken = &xAuthToken
 	return r
 }
 
-func (r ApiApiDevGenTokenCapGetRequest) Execute() (*ApiDevGenTokenCapGet200Response, *http.Response, error) {
-	return r.ApiService.ApiDevGenTokenCapGetExecute(r)
+func (r ApiApiDevCapPostRequest) Body(body map[string]interface{}) ApiApiDevCapPostRequest {
+	r.body = &body
+	return r
+}
+
+func (r ApiApiDevCapPostRequest) Execute() (*ApiDevCapPost200Response, *http.Response, error) {
+	return r.ApiService.ApiDevCapPostExecute(r)
 }
 
 /*
-ApiDevGenTokenCapGet 获取ai能力列表
+ApiDevCapPost 获取ai能力列表
 
 获取ai能力列表
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiDevGenTokenCapGetRequest
+ @return ApiApiDevCapPostRequest
 */
-func (a *DevApiService) ApiDevGenTokenCapGet(ctx context.Context) ApiApiDevGenTokenCapGetRequest {
-	return ApiApiDevGenTokenCapGetRequest{
+func (a *DevApiService) ApiDevCapPost(ctx context.Context) ApiApiDevCapPostRequest {
+	return ApiApiDevCapPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiDevGenTokenCapGet200Response
-func (a *DevApiService) ApiDevGenTokenCapGetExecute(r ApiApiDevGenTokenCapGetRequest) (*ApiDevGenTokenCapGet200Response, *http.Response, error) {
+//  @return ApiDevCapPost200Response
+func (a *DevApiService) ApiDevCapPostExecute(r ApiApiDevCapPostRequest) (*ApiDevCapPost200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ApiDevGenTokenCapGet200Response
+		localVarReturnValue  *ApiDevCapPost200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DevApiService.ApiDevGenTokenCapGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DevApiService.ApiDevCapPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/dev/genToken/cap"
+	localVarPath := localBasePath + "/api/dev/cap"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -78,7 +84,7 @@ func (a *DevApiService) ApiDevGenTokenCapGetExecute(r ApiApiDevGenTokenCapGetReq
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -95,6 +101,8 @@ func (a *DevApiService) ApiDevGenTokenCapGetExecute(r ApiApiDevGenTokenCapGetReq
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AuthToken", r.xAuthToken, "")
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -116,6 +124,17 @@ func (a *DevApiService) ApiDevGenTokenCapGetExecute(r ApiApiDevGenTokenCapGetReq
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrInfo
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v ErrInfo

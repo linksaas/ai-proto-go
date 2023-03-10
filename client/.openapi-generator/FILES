@@ -11,7 +11,7 @@ docs/ApiCodingCompleteLangPostRequest.md
 docs/ApiCodingConvertLangPostRequest.md
 docs/ApiCodingExplainLangPostRequest.md
 docs/ApiCodingFixErrorLangPostRequest.md
-docs/ApiDevGenTokenCapGet200Response.md
+docs/ApiDevCapPost200Response.md
 docs/ApiDevGenTokenPost200Response.md
 docs/ApiDevGenTokenPostRequest.md
 docs/CodingApi.md
@@ -25,7 +25,7 @@ model__api_coding_complete__lang__post_request.go
 model__api_coding_convert__lang__post_request.go
 model__api_coding_explain__lang__post_request.go
 model__api_coding_fix_error__lang__post_request.go
-model__api_dev_gen_token_cap_get_200_response.go
+model__api_dev_cap_post_200_response.go
 model_api_dev_gen_token_post_200_response.go
 model_api_dev_gen_token_post_request.go
 model_err_info.go

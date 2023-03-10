@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.1
+API version: 0.0.2
 Contact: panleiming@linksaas.pro
 */
 
@@ -24,19 +24,16 @@ type ApiDevGenTokenPostRequest struct {
 	ContextValue string `json:"contextValue"`
 	// 随机字符串，加密因子。需要32位长度以上
 	RandomStr string `json:"randomStr"`
-	// 共享密钥
-	Secret string `json:"secret"`
 }
 
 // NewApiDevGenTokenPostRequest instantiates a new ApiDevGenTokenPostRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiDevGenTokenPostRequest(contextValue string, randomStr string, secret string) *ApiDevGenTokenPostRequest {
+func NewApiDevGenTokenPostRequest(contextValue string, randomStr string) *ApiDevGenTokenPostRequest {
 	this := ApiDevGenTokenPostRequest{}
 	this.ContextValue = contextValue
 	this.RandomStr = randomStr
-	this.Secret = secret
 	return &this
 }
 
@@ -96,30 +93,6 @@ func (o *ApiDevGenTokenPostRequest) SetRandomStr(v string) {
 	o.RandomStr = v
 }
 
-// GetSecret returns the Secret field value
-func (o *ApiDevGenTokenPostRequest) GetSecret() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Secret
-}
-
-// GetSecretOk returns a tuple with the Secret field value
-// and a boolean to check if the value has been set.
-func (o *ApiDevGenTokenPostRequest) GetSecretOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Secret, true
-}
-
-// SetSecret sets field value
-func (o *ApiDevGenTokenPostRequest) SetSecret(v string) {
-	o.Secret = v
-}
-
 func (o ApiDevGenTokenPostRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -132,7 +105,6 @@ func (o ApiDevGenTokenPostRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["contextValue"] = o.ContextValue
 	toSerialize["randomStr"] = o.RandomStr
-	toSerialize["secret"] = o.Secret
 	return toSerialize, nil
 }
 

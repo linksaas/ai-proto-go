@@ -13,7 +13,7 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 0.0.2
-- Build date: 2023-03-10T14:33:06.125414+08:00[Asia/Shanghai]
+- Build date: 2023-03-10T14:47:14.893557600+08:00[Asia/Shanghai]
 For more information, please visit [https://github.com/linksaas/ai-proto](https://github.com/linksaas/ai-proto)
 
 ### Running the server

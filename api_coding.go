@@ -29,8 +29,7 @@ type ApiApiCodingCompleteLangPostRequest struct {
 	ApiService *CodingApiService
 	xAuthToken *string
 	lang string
-	beforeContent *string
-	afterContent *string
+	body *string
 }
 
 func (r ApiApiCodingCompleteLangPostRequest) XAuthToken(xAuthToken string) ApiApiCodingCompleteLangPostRequest {
@@ -38,15 +37,8 @@ func (r ApiApiCodingCompleteLangPostRequest) XAuthToken(xAuthToken string) ApiAp
 	return r
 }
 
-// 编辑器光标前面的代码
-func (r ApiApiCodingCompleteLangPostRequest) BeforeContent(beforeContent string) ApiApiCodingCompleteLangPostRequest {
-	r.beforeContent = &beforeContent
-	return r
-}
-
-// 编辑器光标后面的代码
-func (r ApiApiCodingCompleteLangPostRequest) AfterContent(afterContent string) ApiApiCodingCompleteLangPostRequest {
-	r.afterContent = &afterContent
+func (r ApiApiCodingCompleteLangPostRequest) Body(body string) ApiApiCodingCompleteLangPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -95,15 +87,12 @@ func (a *CodingApiService) ApiCodingCompleteLangPostExecute(r ApiApiCodingComple
 	if r.xAuthToken == nil {
 		return localVarReturnValue, nil, reportError("xAuthToken is required and must be specified")
 	}
-	if r.beforeContent == nil {
-		return localVarReturnValue, nil, reportError("beforeContent is required and must be specified")
-	}
-	if r.afterContent == nil {
-		return localVarReturnValue, nil, reportError("afterContent is required and must be specified")
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -120,8 +109,8 @@ func (a *CodingApiService) ApiCodingCompleteLangPostExecute(r ApiApiCodingComple
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AuthToken", r.xAuthToken, "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "beforeContent", r.beforeContent, "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "afterContent", r.afterContent, "")
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -185,8 +174,8 @@ type ApiApiCodingConvertLangPostRequest struct {
 	ApiService *CodingApiService
 	xAuthToken *string
 	lang string
-	content *string
-	destLang *Lang
+	destLang *string
+	body *string
 }
 
 func (r ApiApiCodingConvertLangPostRequest) XAuthToken(xAuthToken string) ApiApiCodingConvertLangPostRequest {
@@ -194,14 +183,13 @@ func (r ApiApiCodingConvertLangPostRequest) XAuthToken(xAuthToken string) ApiApi
 	return r
 }
 
-// 代码内容
-func (r ApiApiCodingConvertLangPostRequest) Content(content string) ApiApiCodingConvertLangPostRequest {
-	r.content = &content
+func (r ApiApiCodingConvertLangPostRequest) DestLang(destLang string) ApiApiCodingConvertLangPostRequest {
+	r.destLang = &destLang
 	return r
 }
 
-func (r ApiApiCodingConvertLangPostRequest) DestLang(destLang Lang) ApiApiCodingConvertLangPostRequest {
-	r.destLang = &destLang
+func (r ApiApiCodingConvertLangPostRequest) Body(body string) ApiApiCodingConvertLangPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -250,15 +238,16 @@ func (a *CodingApiService) ApiCodingConvertLangPostExecute(r ApiApiCodingConvert
 	if r.xAuthToken == nil {
 		return localVarReturnValue, nil, reportError("xAuthToken is required and must be specified")
 	}
-	if r.content == nil {
-		return localVarReturnValue, nil, reportError("content is required and must be specified")
-	}
 	if r.destLang == nil {
 		return localVarReturnValue, nil, reportError("destLang is required and must be specified")
 	}
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	}
 
+	parameterAddToHeaderOrQuery(localVarQueryParams, "destLang", r.destLang, "")
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -275,8 +264,8 @@ func (a *CodingApiService) ApiCodingConvertLangPostExecute(r ApiApiCodingConvert
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AuthToken", r.xAuthToken, "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "content", r.content, "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "destLang", r.destLang, "")
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -340,7 +329,7 @@ type ApiApiCodingExplainLangPostRequest struct {
 	ApiService *CodingApiService
 	xAuthToken *string
 	lang string
-	content *string
+	body *string
 }
 
 func (r ApiApiCodingExplainLangPostRequest) XAuthToken(xAuthToken string) ApiApiCodingExplainLangPostRequest {
@@ -348,9 +337,8 @@ func (r ApiApiCodingExplainLangPostRequest) XAuthToken(xAuthToken string) ApiApi
 	return r
 }
 
-// 代码内容
-func (r ApiApiCodingExplainLangPostRequest) Content(content string) ApiApiCodingExplainLangPostRequest {
-	r.content = &content
+func (r ApiApiCodingExplainLangPostRequest) Body(body string) ApiApiCodingExplainLangPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -399,12 +387,12 @@ func (a *CodingApiService) ApiCodingExplainLangPostExecute(r ApiApiCodingExplain
 	if r.xAuthToken == nil {
 		return localVarReturnValue, nil, reportError("xAuthToken is required and must be specified")
 	}
-	if r.content == nil {
-		return localVarReturnValue, nil, reportError("content is required and must be specified")
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -421,7 +409,8 @@ func (a *CodingApiService) ApiCodingExplainLangPostExecute(r ApiApiCodingExplain
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AuthToken", r.xAuthToken, "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "content", r.content, "")
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -485,7 +474,7 @@ type ApiApiCodingFixErrorLangPostRequest struct {
 	ApiService *CodingApiService
 	xAuthToken *string
 	lang string
-	content *string
+	body *string
 }
 
 func (r ApiApiCodingFixErrorLangPostRequest) XAuthToken(xAuthToken string) ApiApiCodingFixErrorLangPostRequest {
@@ -493,9 +482,8 @@ func (r ApiApiCodingFixErrorLangPostRequest) XAuthToken(xAuthToken string) ApiAp
 	return r
 }
 
-// 报错内容
-func (r ApiApiCodingFixErrorLangPostRequest) Content(content string) ApiApiCodingFixErrorLangPostRequest {
-	r.content = &content
+func (r ApiApiCodingFixErrorLangPostRequest) Body(body string) ApiApiCodingFixErrorLangPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -544,12 +532,12 @@ func (a *CodingApiService) ApiCodingFixErrorLangPostExecute(r ApiApiCodingFixErr
 	if r.xAuthToken == nil {
 		return localVarReturnValue, nil, reportError("xAuthToken is required and must be specified")
 	}
-	if r.content == nil {
-		return localVarReturnValue, nil, reportError("content is required and must be specified")
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -566,7 +554,8 @@ func (a *CodingApiService) ApiCodingFixErrorLangPostExecute(r ApiApiCodingFixErr
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AuthToken", r.xAuthToken, "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "content", r.content, "")
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -630,7 +619,7 @@ type ApiApiCodingGenTestLangPostRequest struct {
 	ApiService *CodingApiService
 	xAuthToken *string
 	lang string
-	content *string
+	body *string
 }
 
 func (r ApiApiCodingGenTestLangPostRequest) XAuthToken(xAuthToken string) ApiApiCodingGenTestLangPostRequest {
@@ -638,9 +627,8 @@ func (r ApiApiCodingGenTestLangPostRequest) XAuthToken(xAuthToken string) ApiApi
 	return r
 }
 
-// 代码内容
-func (r ApiApiCodingGenTestLangPostRequest) Content(content string) ApiApiCodingGenTestLangPostRequest {
-	r.content = &content
+func (r ApiApiCodingGenTestLangPostRequest) Body(body string) ApiApiCodingGenTestLangPostRequest {
+	r.body = &body
 	return r
 }
 
@@ -689,12 +677,12 @@ func (a *CodingApiService) ApiCodingGenTestLangPostExecute(r ApiApiCodingGenTest
 	if r.xAuthToken == nil {
 		return localVarReturnValue, nil, reportError("xAuthToken is required and must be specified")
 	}
-	if r.content == nil {
-		return localVarReturnValue, nil, reportError("content is required and must be specified")
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/x-www-form-urlencoded"}
+	localVarHTTPContentTypes := []string{"text/plain"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -711,7 +699,8 @@ func (a *CodingApiService) ApiCodingGenTestLangPostExecute(r ApiApiCodingGenTest
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AuthToken", r.xAuthToken, "")
-	parameterAddToHeaderOrQuery(localVarFormParams, "content", r.content, "")
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

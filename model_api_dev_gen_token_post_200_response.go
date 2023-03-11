@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.2
+API version: 0.0.3
 Contact: panleiming@linksaas.pro
 */
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiDevGenTokenPost200Response{}
 // ApiDevGenTokenPost200Response struct for ApiDevGenTokenPost200Response
 type ApiDevGenTokenPost200Response struct {
 	// 登录凭证
-	Token string `json:"token"`
+	Token string `json:"token" xml:"token"`
 }
 
 // NewApiDevGenTokenPost200Response instantiates a new ApiDevGenTokenPost200Response object

@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.2
+API version: 0.0.3
 Contact: panleiming@linksaas.pro
 */
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &ApiDevGenTokenPostRequest{}
 // ApiDevGenTokenPostRequest struct for ApiDevGenTokenPostRequest
 type ApiDevGenTokenPostRequest struct {
 	// 上下文信息
-	ContextValue string `json:"contextValue"`
+	ContextValue string `json:"contextValue" xml:"contextValue"`
 	// 随机字符串，加密因子。需要32位长度以上
-	RandomStr string `json:"randomStr"`
+	RandomStr string `json:"randomStr" xml:"randomStr"`
 }
 
 // NewApiDevGenTokenPostRequest instantiates a new ApiDevGenTokenPostRequest object

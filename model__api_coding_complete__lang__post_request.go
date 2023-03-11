@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.2
+API version: 0.0.3
 Contact: panleiming@linksaas.pro
 */
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &ApiCodingCompleteLangPostRequest{}
 // ApiCodingCompleteLangPostRequest struct for ApiCodingCompleteLangPostRequest
 type ApiCodingCompleteLangPostRequest struct {
 	// 编辑器光标前面的代码
-	BeforeContent string `json:"beforeContent"`
+	BeforeContent string `json:"beforeContent" xml:"beforeContent"`
 	// 编辑器光标后面的代码
-	AfterContent string `json:"afterContent"`
+	AfterContent string `json:"afterContent" xml:"afterContent"`
 }
 
 // NewApiCodingCompleteLangPostRequest instantiates a new ApiCodingCompleteLangPostRequest object

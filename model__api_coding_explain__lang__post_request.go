@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.2
+API version: 0.0.3
 Contact: panleiming@linksaas.pro
 */
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiCodingExplainLangPostRequest{}
 // ApiCodingExplainLangPostRequest struct for ApiCodingExplainLangPostRequest
 type ApiCodingExplainLangPostRequest struct {
 	// 代码内容
-	Content string `json:"content"`
+	Content string `json:"content" xml:"content"`
 }
 
 // NewApiCodingExplainLangPostRequest instantiates a new ApiCodingExplainLangPostRequest object

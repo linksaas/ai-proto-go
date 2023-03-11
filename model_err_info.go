@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.2
+API version: 0.0.3
 Contact: panleiming@linksaas.pro
 */
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &ErrInfo{}
 // ErrInfo struct for ErrInfo
 type ErrInfo struct {
 	// 错误信息
-	ErrMsg *string `json:"errMsg,omitempty"`
+	ErrMsg *string `json:"errMsg,omitempty" xml:"errMsg"`
 }
 
 // NewErrInfo instantiates a new ErrInfo object

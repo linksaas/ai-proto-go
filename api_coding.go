@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.2
+API version: 0.0.3
 Contact: panleiming@linksaas.pro
 */
 
@@ -42,7 +42,7 @@ func (r ApiApiCodingCompleteLangPostRequest) ApiCodingCompleteLangPostRequest(ap
 	return r
 }
 
-func (r ApiApiCodingCompleteLangPostRequest) Execute() ([]string, *http.Response, error) {
+func (r ApiApiCodingCompleteLangPostRequest) Execute() (*ApiCodingCompleteLangPost200Response, *http.Response, error) {
 	return r.ApiService.ApiCodingCompleteLangPostExecute(r)
 }
 
@@ -64,13 +64,13 @@ func (a *CodingApiService) ApiCodingCompleteLangPost(ctx context.Context, lang s
 }
 
 // Execute executes the request
-//  @return []string
-func (a *CodingApiService) ApiCodingCompleteLangPostExecute(r ApiApiCodingCompleteLangPostRequest) ([]string, *http.Response, error) {
+//  @return ApiCodingCompleteLangPost200Response
+func (a *CodingApiService) ApiCodingCompleteLangPostExecute(r ApiApiCodingCompleteLangPostRequest) (*ApiCodingCompleteLangPost200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarReturnValue  *ApiCodingCompleteLangPost200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CodingApiService.ApiCodingCompleteLangPost")
@@ -92,7 +92,7 @@ func (a *CodingApiService) ApiCodingCompleteLangPostExecute(r ApiApiCodingComple
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -101,7 +101,7 @@ func (a *CodingApiService) ApiCodingCompleteLangPostExecute(r ApiApiCodingComple
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/xml"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -187,7 +187,7 @@ func (r ApiApiCodingConvertLangPostRequest) ApiCodingConvertLangPostRequest(apiC
 	return r
 }
 
-func (r ApiApiCodingConvertLangPostRequest) Execute() ([]string, *http.Response, error) {
+func (r ApiApiCodingConvertLangPostRequest) Execute() (*ApiCodingCompleteLangPost200Response, *http.Response, error) {
 	return r.ApiService.ApiCodingConvertLangPostExecute(r)
 }
 
@@ -209,13 +209,13 @@ func (a *CodingApiService) ApiCodingConvertLangPost(ctx context.Context, lang st
 }
 
 // Execute executes the request
-//  @return []string
-func (a *CodingApiService) ApiCodingConvertLangPostExecute(r ApiApiCodingConvertLangPostRequest) ([]string, *http.Response, error) {
+//  @return ApiCodingCompleteLangPost200Response
+func (a *CodingApiService) ApiCodingConvertLangPostExecute(r ApiApiCodingConvertLangPostRequest) (*ApiCodingCompleteLangPost200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarReturnValue  *ApiCodingCompleteLangPost200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CodingApiService.ApiCodingConvertLangPost")
@@ -237,7 +237,7 @@ func (a *CodingApiService) ApiCodingConvertLangPostExecute(r ApiApiCodingConvert
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -246,7 +246,7 @@ func (a *CodingApiService) ApiCodingConvertLangPostExecute(r ApiApiCodingConvert
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/xml"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -332,7 +332,7 @@ func (r ApiApiCodingExplainLangPostRequest) ApiCodingExplainLangPostRequest(apiC
 	return r
 }
 
-func (r ApiApiCodingExplainLangPostRequest) Execute() ([]string, *http.Response, error) {
+func (r ApiApiCodingExplainLangPostRequest) Execute() (*ApiCodingExplainLangPost200Response, *http.Response, error) {
 	return r.ApiService.ApiCodingExplainLangPostExecute(r)
 }
 
@@ -354,13 +354,13 @@ func (a *CodingApiService) ApiCodingExplainLangPost(ctx context.Context, lang st
 }
 
 // Execute executes the request
-//  @return []string
-func (a *CodingApiService) ApiCodingExplainLangPostExecute(r ApiApiCodingExplainLangPostRequest) ([]string, *http.Response, error) {
+//  @return ApiCodingExplainLangPost200Response
+func (a *CodingApiService) ApiCodingExplainLangPostExecute(r ApiApiCodingExplainLangPostRequest) (*ApiCodingExplainLangPost200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarReturnValue  *ApiCodingExplainLangPost200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CodingApiService.ApiCodingExplainLangPost")
@@ -382,7 +382,7 @@ func (a *CodingApiService) ApiCodingExplainLangPostExecute(r ApiApiCodingExplain
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -391,7 +391,7 @@ func (a *CodingApiService) ApiCodingExplainLangPostExecute(r ApiApiCodingExplain
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/xml"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -477,7 +477,7 @@ func (r ApiApiCodingFixErrorLangPostRequest) ApiCodingFixErrorLangPostRequest(ap
 	return r
 }
 
-func (r ApiApiCodingFixErrorLangPostRequest) Execute() ([]string, *http.Response, error) {
+func (r ApiApiCodingFixErrorLangPostRequest) Execute() (*ApiCodingFixErrorLangPost200Response, *http.Response, error) {
 	return r.ApiService.ApiCodingFixErrorLangPostExecute(r)
 }
 
@@ -499,13 +499,13 @@ func (a *CodingApiService) ApiCodingFixErrorLangPost(ctx context.Context, lang s
 }
 
 // Execute executes the request
-//  @return []string
-func (a *CodingApiService) ApiCodingFixErrorLangPostExecute(r ApiApiCodingFixErrorLangPostRequest) ([]string, *http.Response, error) {
+//  @return ApiCodingFixErrorLangPost200Response
+func (a *CodingApiService) ApiCodingFixErrorLangPostExecute(r ApiApiCodingFixErrorLangPostRequest) (*ApiCodingFixErrorLangPost200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarReturnValue  *ApiCodingFixErrorLangPost200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CodingApiService.ApiCodingFixErrorLangPost")
@@ -527,7 +527,7 @@ func (a *CodingApiService) ApiCodingFixErrorLangPostExecute(r ApiApiCodingFixErr
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -536,7 +536,7 @@ func (a *CodingApiService) ApiCodingFixErrorLangPostExecute(r ApiApiCodingFixErr
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/xml"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -622,7 +622,7 @@ func (r ApiApiCodingGenTestLangPostRequest) ApiCodingExplainLangPostRequest(apiC
 	return r
 }
 
-func (r ApiApiCodingGenTestLangPostRequest) Execute() ([]string, *http.Response, error) {
+func (r ApiApiCodingGenTestLangPostRequest) Execute() (*ApiCodingCompleteLangPost200Response, *http.Response, error) {
 	return r.ApiService.ApiCodingGenTestLangPostExecute(r)
 }
 
@@ -644,13 +644,13 @@ func (a *CodingApiService) ApiCodingGenTestLangPost(ctx context.Context, lang st
 }
 
 // Execute executes the request
-//  @return []string
-func (a *CodingApiService) ApiCodingGenTestLangPostExecute(r ApiApiCodingGenTestLangPostRequest) ([]string, *http.Response, error) {
+//  @return ApiCodingCompleteLangPost200Response
+func (a *CodingApiService) ApiCodingGenTestLangPostExecute(r ApiApiCodingGenTestLangPostRequest) (*ApiCodingCompleteLangPost200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarReturnValue  *ApiCodingCompleteLangPost200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CodingApiService.ApiCodingGenTestLangPost")
@@ -672,7 +672,7 @@ func (a *CodingApiService) ApiCodingGenTestLangPostExecute(r ApiApiCodingGenTest
 	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"application/xml"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -681,7 +681,7 @@ func (a *CodingApiService) ApiCodingGenTestLangPostExecute(r ApiApiCodingGenTest
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/xml"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

@@ -3,7 +3,7 @@ ai-proto
 
 ai proto for coder
 
-API version: 0.0.2
+API version: 0.0.3
 Contact: panleiming@linksaas.pro
 */
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &ApiCodingFixErrorLangPostRequest{}
 // ApiCodingFixErrorLangPostRequest struct for ApiCodingFixErrorLangPostRequest
 type ApiCodingFixErrorLangPostRequest struct {
 	// 报错内容
-	Content string `json:"content"`
+	Content string `json:"content" xml:"content"`
 }
 
 // NewApiCodingFixErrorLangPostRequest instantiates a new ApiCodingFixErrorLangPostRequest object
